@@ -1,7 +1,13 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import {View, Text, StyleSheet, StatusBar} from 'react-native';
 
+import api from './services/api';
+
 export default function App () {
+
+    
+
+
     return (
     <>
     
