@@ -1,6 +1,7 @@
 
 import {useState, useEffect, createContext} from 'react';
 import firebase from '../services/firebaseConnection';
+import { toast } from 'react-toastify';
 
 export const AuthContext = createContext({});
 
@@ -30,8 +31,8 @@ function AuthProvider({children}){
 
     }, [])
 
+    //Cadastrando um novo usuário
     async function signUp(email, password, nome){
-
         setLoadingAuth(true);
 
         await firebase.auth().createUserWithEmailAndPassword(email, password)
@@ -56,40 +57,67 @@ function AuthProvider({children}){
                 setUser(data);
                 storageUser(data);
                 setLoadingAuth(false);
+                toast.success('Bem vindo a plataforma');
             })
         })
         .catch((error) => {
             console.log(error)
+            toast.error('Ops, algo deu errado!');
             setLoadingAuth(false);
+           
 
         })
        
     }
 
-    function storageUser(data){
-        localStorage.setItem('SistemaUser', JSON.stringify(data));
-    }
+    
+    //Fazer o login de um novo usuário
+    async function signIn(email, password){
+        
+        setLoadingAuth(true);
 
+        await firebase.auth().signInWithEmailAndPassword(email, password)
+        .then(async (value)=>{
+
+          let uid  = value.user.uid
+
+          const userProfile = await firebase.firestore().collection('users')
+          .doc(uid).get();
+
+          let data = {
+            uid: uid,
+            nome: userProfile.data().nome,
+            avatarUrl: userProfile.data().avatarUrl,
+            email: value.user.email
+          };
+
+          setUser(data);
+          storageUser(data);
+          setLoadingAuth(false);
+          toast.success(`Bem vindo de volta, ${data.nome}!`)
+
+
+        })
+        .catch((error)=>{
+          console.log(error);
+          setLoadingAuth(false);
+          toast.error('Ops, algo deu errado!')
+        })
+      };
+    
+
+    //Fazer logout do usuário
     async function signOut(){
         await firebase.auth().signOut();
         localStorage.removeItem('SistemaUser');
         setUser(null);
     }
 
-    async function login(email, password){
-        await firebase.auth().signInWithEmailAndPassword(email, password)
-        .then((value)=>{
-            console.log(value)
-          let data = {
-              uid: value.user.uid
-            }
-          setUser(data)
-        })
-        .catch((error)=>{
-          console.log('ERRO AO FAZER O LOGIN' + error);
-        })
-      }
-    
+    //Salavar usuário no localstorage
+    function storageUser(data){
+        localStorage.setItem('SistemaUser', JSON.stringify(data));
+    }
+
 
 
 
@@ -101,7 +129,8 @@ function AuthProvider({children}){
             loading, 
             signUp,
             signOut,
-            login
+            signIn,
+            loadingAuth
         }}
         >
             {/* 
