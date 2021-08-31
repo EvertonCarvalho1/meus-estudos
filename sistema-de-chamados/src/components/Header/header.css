@@ -6,6 +6,13 @@
     position: fixed;
     height: 100%;
     overflow: auto;
+    display: flex;
+    flex-direction: column;
+    
+}
+
+.sidebar button:last-child{
+    margin-top: auto;
 }
 
 .sidebar div{
@@ -55,15 +62,17 @@
     border: none;
     width: 100%;
     display: flex;
-    justify-content: flex-start;
     align-items: center;
-    padding: 16px;
+    padding: 20px 16px;
     transition: ease-in-out .4s;
+    font-size: 18px;
+    
 }
 
 .sidebar button:hover{
     background-color: #121212;
     color: #FFF;
+
 }
 
 .sidebar button svg{
@@ -81,6 +90,7 @@
         height: auto;
         position: relative;
         display: flex;
+        flex-direction: row;
         justify-content: space-between;
     }
     .sidebar a{
@@ -98,7 +108,13 @@
     div.content{
         margin-left: 0;
       
-}
+    }
+
+    .sidebar button{
+        font-size: 16px;
+        padding: 16px;
+    
+    }
  
 }
 

@@ -38,7 +38,7 @@ export default function Header () {
             <button onClick={() => signOut()}>
                 <FiLogOut color='#FFF' size={24}/>
                 Sair
-                </button>
+            </button>
         </div>
     )
 };
