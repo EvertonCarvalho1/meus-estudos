@@ -113,7 +113,7 @@ function AuthProvider({children}){
         setUser(null);
     }
 
-    //Salavar usuário no localstorage
+    //Salvar usuário no localstorage
     function storageUser(data){
         localStorage.setItem('SistemaUser', JSON.stringify(data));
     }
@@ -125,12 +125,15 @@ function AuthProvider({children}){
         <AuthContext.Provider 
         value={{
             signed: !!user,
-            user, 
+            user,
             loading, 
             signUp,
             signOut,
             signIn,
-            loadingAuth
+            loadingAuth,
+            storageUser,
+            setUser
+
         }}
         >
             {/* 

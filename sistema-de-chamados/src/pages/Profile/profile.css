@@ -1,0 +1,59 @@
+.container{
+    display: flex;
+    background-color: #f8f8f8;
+    border-radius: 5px;
+    padding: .8em;
+    align-items: center;
+}
+
+.label-avatar{
+    width: 280px;
+    height: 280px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.label-avatar input{
+    display: none;
+}
+
+.label-avatar span{
+    z-index: 99;
+    position: absolute;
+    opacity: 0.7;
+    transition: all .5s;
+}
+
+.label-avatar span:hover{
+  opacity: 1;
+  transform: scale(1.5);
+}
+
+.form-profile img{
+    margin-bottom: 1em;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.form-profile label{
+    margin-bottom: .5em;
+    font-size: 1.4em;
+}
+
+.form-profile input, textarea, select{
+    margin-bottom: 1em;
+    padding: .7em;
+    border: 0;
+    border-radius: 5px;
+    max-width: 600px;
+}
+.form-profile input:disabled{
+   cursor: not-allowed;
+}
+
+.form-profile button{
+    max-width: 600px;
+}
