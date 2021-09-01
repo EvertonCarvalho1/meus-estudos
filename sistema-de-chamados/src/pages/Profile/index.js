@@ -7,7 +7,8 @@ import avatar from '../../assets/avatar.png';
 import firebase from '../../services/firebaseConnection';
 import {AuthContext} from '../../contexts/auth';
 
-import { FiSettings, FiUpload } from 'react-icons/fi';  
+import { FiSettings, FiUpload } from 'react-icons/fi';
+import { toast } from 'react-toastify';  
 
 export default function Profile (){
 
@@ -64,8 +65,9 @@ export default function Profile (){
                     };
                     setUser(data);
                     storageUser(data);
-                   
+                    
                 })
+                
             })
 
         })
@@ -92,10 +94,12 @@ export default function Profile (){
 
                 setUser(data);
                 storageUser(data);
+                toast.success('Nome alterado com sucesso!');
             })
 
         }else if(nome !== '' && imageAvatar !== null){
             handleUpload()
+            toast.success('Foto e nome alterados com sucesso!');
         }
     };
 
