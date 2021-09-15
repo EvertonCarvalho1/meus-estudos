@@ -19,7 +19,7 @@ export default function Dashboard(){
     const [loading, setLoadign] = useState(true);
     const [loadingMore, setLoadingMore] = useState(false);
     const [isEmpty, setIsEmpty] = useState(false);
-    const [lastDocs, setLastDocs] = useState();
+    const [lastDocs, setLastDocs] = useState()
 
     useEffect(() => {
 
