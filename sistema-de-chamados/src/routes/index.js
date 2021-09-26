@@ -47,6 +47,12 @@ export default function Routes() {
             isPrivate
             /> 
 
+            <Route 
+            exact path='/new/:id'
+            component={New}
+            isPrivate
+            /> 
+
         </Switch>
         )
 }
