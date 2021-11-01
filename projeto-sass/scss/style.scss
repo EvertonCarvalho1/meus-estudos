@@ -49,12 +49,13 @@ $dark-grey: #464646;
 .header__menu .menu__list .menu__links .menu__link:hover{
     color: $purple;
 }
-
+/*Rodapé*/ 
 .footer{
     text-align: center;
     padding: 20px 0;
     font-family: Arial, Helvetica, sans-serif;
     position: absolute;
+    //posiciona o footer no bottom
     bottom: 0;
     left: 50%;
     transform: translateX(-50%);
