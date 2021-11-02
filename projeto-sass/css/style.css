@@ -156,6 +156,33 @@
 .main__a:hover {
   color: #a050be;
 }
+.main__sidebar {
+  width: 25%;
+  padding: 40px 10px;
+}
+.main .sidebar__top {
+  border: 1px solid #eaeaeb;
+  padding: 15px 20px;
+}
+.main .sidebar__title {
+  background-color: #fabe50;
+  text-align: center;
+  padding: 10px 20px;
+  margin: 0;
+  letter-spacing: 1.5px;
+}
+.main .sidebar__posts {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.main .sidebar__list {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  align-items: center;
+  pad: 15px 0;
+}
 
 .about {
   width: 80%;
@@ -212,7 +239,7 @@
   align-items: center;
   flex-wrap: wrap;
 }
-.about__img2 {
+.about__img-description {
   width: 45%;
 }
 .about__txt {

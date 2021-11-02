@@ -193,6 +193,42 @@ $img-width: 45%;
             color:$purple;
         }
     }
+
+    &__sidebar{
+        width: 25%;
+        padding: 40px 10px;
+    }
+
+    .sidebar{
+        &__top{
+            border: 1px solid $light-grey;
+            padding: 15px 20px;
+        }
+
+        &__title{
+            background-color: $yellow;
+            text-align: center;
+            padding: 10px 20px;
+            margin: 0;
+            letter-spacing: 1.5px;
+        }
+
+        &__posts{
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        &__list{
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            align-items: center;
+            pad: 15px 0;
+            
+        }
+    }
+
 }
 
 .about{
@@ -259,7 +295,7 @@ $img-width: 45%;
 
    }
 
-   &__img2{
+   &__img-description{
        width: $img-width;
    }
 
