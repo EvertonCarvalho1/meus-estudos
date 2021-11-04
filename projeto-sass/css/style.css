@@ -183,6 +183,24 @@
   align-items: center;
   padding: 15px 0;
 }
+.main .sidebar__list:not(:last-child) {
+  border-bottom: 1px dashed #eaeaeb;
+}
+.main .sidebar__img {
+  width: 40%;
+}
+.main .sidebar__details {
+  width: 50%;
+  padding-left: 10px;
+}
+.main .sidebar__post-title {
+  font-size: 15px;
+  color: #a050be;
+}
+.main .sidebar__post-date {
+  font-size: 12px;
+  margin: 5px 0 0 0;
+}
 
 .about {
   width: 80%;

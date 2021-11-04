@@ -225,7 +225,26 @@ $img-width: 45%;
             flex-wrap: wrap;
             align-items: center;
             padding: 15px 0;
-            
+            &:not(:last-child){
+                border-bottom: 1px dashed $light-grey;
+            }
+        }
+
+        &__img{
+            width: 40%;
+        }
+        &__details{
+            width: 50%;
+            padding-left: 10px;
+        }
+        &__post-title{
+            font-size: 15px;
+            color: $purple;
+        }
+
+        &__post-date{
+            font-size: 12px;
+            margin: 5px 0 0 0;
         }
     }
 
