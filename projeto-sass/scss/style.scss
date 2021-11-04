@@ -13,9 +13,21 @@ $img-width: 45%;
     list-style: none;
 }
 
-@mixin flx {
+@mixin flx($property, $jty-cnt) {
     display: flex;
-    justify-content: center;
+    #{$property}: $jty-cnt;
+}
+
+@mixin for-phone-only {
+    @media (max-width: 767.98px) {@content;}
+}
+
+@mixin for-tablet-only {
+    @media (min-width: 768px) and (max-width: 1199.98px) {@content;}
+}
+
+@mixin for-desktop-only {
+    @media (min-width: 1200px) {@content;}
 }
 
 
@@ -42,10 +54,26 @@ $img-width: 45%;
             margin-right: auto;
             width: 80%;
             padding: 20px 0;
+            @include for-phone-only{
+                width: 90%;
+                padding: 15px 0;
+                flex-wrap: wrap;
+            }
+            @include for-tablet-only{
+                width: 80%;
+                padding: 20px 0;
+            }
+            @include for-desktop-only{
+                width: 80%;
+                padding: 20px 0;
+            }
         }
 
         &__links{
             position: relative;
+            @include for-phone-only{
+                padding: 5px 0;
+            }
 
             &:not(:last-child)::after{
                 content: '';
@@ -101,8 +129,13 @@ $img-width: 45%;
     font-family: Arial, Helvetica, sans-serif;
 
     &__content{
+        @include for-phone-only{
+            width: 100%;
+            padding: 20px 0;
+        }
         width: 70%;
         padding: 40px 8px;
+        
     }
 
     &__post{
@@ -214,6 +247,10 @@ $img-width: 45%;
     &__sidebar{
         width: 25%;
         padding: 40px 10px;
+        @include for-phone-only{
+            width: 100%;
+            padding: 20px 0;
+        }
     }
 
     .sidebar{
@@ -371,7 +408,7 @@ $img-width: 45%;
     }
 
     .breadcrumb {
-        @include flx;
+        @include flx(justify-content, center);
         align-items: center;
         &__link {
             font-size: 12px;
@@ -387,6 +424,35 @@ $img-width: 45%;
             width: 10px;
             margin: 8px;
         }
+    }
+
+    &__img{
+        margin-bottom: 20px;
+        width: 100%;
+
+    }
+
+    &__details{
+        @include flx(justify-content, center);
+    }
+
+    &__date{
+        margin: 0 10px;
+        font-size: 12px;
+        font-style: italic;
+    }
+
+    &__tag{
+        font-size: 14px;
+        padding: 5px 7px;
+        color: $purple;
+        margin: 0 10px;
+    }
+
+    &__content{
+        font-weight: 100;
+        font-size: 14px;
+        color: $dark-grey;
     }
    
 }
