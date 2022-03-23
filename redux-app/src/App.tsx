@@ -23,6 +23,9 @@ const App: React.FC = () => {
 
   const handleSwitchTheme = () => {
     switchTheme(theme.status === 'light' ? 'dark' : 'light')
+    
+    //com dispatch diretamente
+    // dispatch(setThemeStatus(theme.status === 'light' ? 'dark' : 'light'))
   }
 
   const handleNameInput = (event: React.ChangeEvent<HTMLInputElement>) => {
