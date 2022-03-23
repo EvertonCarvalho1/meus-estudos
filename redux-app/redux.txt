@@ -8,16 +8,22 @@
     - colocamos toda a aplicação dentro do provider, logo toda a aplicação vai ter acesso a store
 
 - reducers / slice
-    Cada dado da store deve ter o seu próprio reducer, por exemplo: o dado "user" teria o seu reducer, chamado  só para User. Um reducer é encarregado de lidar com todas as ações, como algum componente pedindo para alterar algum dado da store.
+    - Cada dado da store deve ter o seu próprio reducer, por exemplo: o dado "user" teria o seu reducer, chamado  só para User. Um reducer é encarregado de lidar com todas as ações, como algum componente pedindo para alterar algum dado da store.
+    - as actions ficam dentro dos reducers
 
 - actions 
-    Actions são responsáveis por requisitar algo para um reducer. Elas devem ser sempre funções puras, dizendo de uma forma leiga, ou seja elas devem APENAS enviar os dados ao reducer, nada além disso. Disparar uma ação apenas levando os dados que você deseja enviar e o reducer vai receber e usar os dados.
+    - Actions são responsáveis por requisitar algo para um reducer. Elas devem ser sempre funções puras, dizendo de uma forma leiga, ou seja elas devem APENAS enviar os dados ao reducer, nada além disso. Disparar uma ação apenas levando os dados que você deseja enviar e o reducer vai receber e usar os dados.
+    - as actions ficam dentro do reducer
 
 - actions / dispatches
     -utilizamos as actions atraves dos dispatches
 
 - selectors
     para pegar informações na store
+
+
+ npm install redux react-redux @reduxjs/toolkit
+ npm install -D @types/react-redux
 
 
     
