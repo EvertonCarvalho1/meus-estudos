@@ -24,7 +24,7 @@ export const slice = createSlice({
 });
 
 export const { setName, setJob, setAge } = slice.actions;
-export default slice.reducer; //useReducer
+export default slice.reducer; //userReducer reducer de usuario
 
 
 

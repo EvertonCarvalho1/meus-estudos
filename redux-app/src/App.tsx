@@ -2,27 +2,45 @@ import React, { useCallback } from 'react';
 import { useDispatch } from 'react-redux';
 
 import { setName, setAge, setJob } from './redux/reducers/userReducer';
+import { setThemeStatus } from './redux/reducers/themeReducer';
+
 import { useAppSelector } from './redux/hooks/useAppSelector';
 
 
 const App: React.FC = () => {
 
   const dispatch = useDispatch();
-  const user = useAppSelector(state => state.user);
 
-  const handleNameInput = useCallback((event: React.ChangeEvent<HTMLInputElement>) => {
-    dispatch(setName(event.target.value));
-  }, []);
-  const handleAgeInput = useCallback((event: React.ChangeEvent<HTMLInputElement>) => {
-    dispatch(setAge(event.target.value));
-  }, []);
-  const handleJobInput = useCallback((event: React.ChangeEvent<HTMLInputElement>) => {
-    dispatch(setJob(event.target.value));
-  }, []);
+  const user = useAppSelector(state => state.user);
+  const theme = useAppSelector(state => state.theme);
+
+
+  const switchTheme = (newTheme: string) => dispatch(setThemeStatus(newTheme));
+  const changeName = (newName: string) => dispatch(setName(newName));
+  const changeAge = (newAge: string) => dispatch(setAge(newAge));
+  const changeJob = (newJob: string) => dispatch(setJob(newJob));
+
+
+  const handleSwitchTheme = () => {
+    switchTheme(theme.status === 'light' ? 'dark' : 'light')
+  }
+
+  const handleNameInput = (event: React.ChangeEvent<HTMLInputElement>) => {
+    changeName(event.target.value)
+  }
+
+  const handleAgeInput = (event: React.ChangeEvent<HTMLInputElement>) => {
+    changeAge(event.target.value);
+  }  
+
+  const handleJobInput = (event: React.ChangeEvent<HTMLInputElement>) => {
+    changeJob(event.target.value);
+  }  
 
   return (
     <div>
       Meu nome é {user.name} e tenho {user.age} anos. Traballho como {user.job}. <br />
+      Tema {theme.status}
 
       <hr />
       <h3>Digite o nome</h3>
@@ -45,8 +63,7 @@ const App: React.FC = () => {
       />
 
       <hr />
-
-      <button>Switch Theme</button>
+      <button onClick={handleSwitchTheme}>Switch Theme</button>
     </div>
   )
 }
