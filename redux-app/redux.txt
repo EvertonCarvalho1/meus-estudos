@@ -24,6 +24,9 @@
 - selectors
     para pegar informações na store
 
+- useSelector
+    utiliza-se um useSelector para cada reducer.
+    
 
  npm install redux react-redux @reduxjs/toolkit
  npm install -D @types/react-redux
