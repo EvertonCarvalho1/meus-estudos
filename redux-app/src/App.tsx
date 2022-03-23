@@ -3,7 +3,7 @@ import React from 'react';
 const App: React.FC = () => {
   return(
     <div>
-      Meu nome é: ... e tenho ... anos. <br />
+      Meu nome é ... e tenho ... anos. Traballho como... . <br />
 
       <hr />
 
