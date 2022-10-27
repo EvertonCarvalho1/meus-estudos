@@ -5,7 +5,7 @@ const res = require('express/lib/response');
 const app = express();
 
 app.get('/', (request, response) => {
-    return response.json({message: 'deu boa neste curso!'}); 
+    return response.json({message: 'deu boa hoje!'}); 
 });
 
 app.listen(3333);
